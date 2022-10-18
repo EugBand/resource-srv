@@ -1,0 +1,25 @@
+spring:
+  rabbitmq:
+    port: '5672'
+    host: localhost
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      overrideCloudConnectors: true
+      bindings:
+        output-1:
+          destination: createq
+          group: createq
+          contentType: application/json
+          binder: rabbit
+      rabbit:
+        bindings:
+          Output-1:
+            consumer:
+              max-attempts: 3
+              autoBindDlq: true
+              dlqTtl: 5000
+server:
+  port: '8090'
+

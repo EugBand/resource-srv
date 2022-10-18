@@ -33,8 +33,8 @@ public class Resource {
     @LastModifiedDate
     private Instant updatedAt;
 
-    @Column(name = "filename")
-    private String fileName;
+    @Column(name = "filepath")
+    private String filePath;
 
     @Lob @Basic(fetch=LAZY)
     @Column(name="mp3_file")
